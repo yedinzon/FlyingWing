@@ -1,1 +1,1 @@
-print("Calculadora Ala Volante")
+print("Calculadora de Ala Volante")
