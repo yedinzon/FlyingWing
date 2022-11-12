@@ -1,1 +1,1 @@
-
+print("Calculadora de Alas Volantes")
