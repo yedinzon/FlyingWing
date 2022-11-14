@@ -21,7 +21,21 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controller\MotorController.py" />
+    <Compile Include="Data\Componentes\Motores.py" />
     <Compile Include="FlyingWing.py" />
+    <Compile Include="Model\MotorModel.py" />
+    <Compile Include="View\Pizarra\GeometriaAla.py" />
+    <Compile Include="View\Pizarra\Pizarra.py" />
+    <Compile Include="View\VentanaPrincipal.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Componentes\" />
+    <Folder Include="Model\" />
+    <Folder Include="Controller\" />
+    <Folder Include="Data\" />
+    <Folder Include="View\" />
+    <Folder Include="View\Pizarra\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

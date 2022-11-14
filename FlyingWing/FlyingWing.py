@@ -1,2 +1,5 @@
-print("Calculadora de Alas Volantes")
-print("Prueba Develop")
+from View.VentanaPrincipal import VentanaPrincipal
+
+VentanaPrincipal().ventana.mainloop()
+
+
