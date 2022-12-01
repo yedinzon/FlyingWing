@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controller\Miscelanea\SuperficieControl.py" />
     <Compile Include="Controller\MotorController.py" />
     <Compile Include="Data\Componentes\Motores.py" />
     <Compile Include="FlyingWing.py" />
@@ -30,6 +31,7 @@
     <Compile Include="View\VentanaPrincipal.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controller\Miscelanea\" />
     <Folder Include="Data\Componentes\" />
     <Folder Include="Model\" />
     <Folder Include="Controller\" />
