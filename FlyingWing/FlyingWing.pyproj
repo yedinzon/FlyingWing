@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>968fa1f7-7197-4f6f-9a95-c1a9955915fe</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>FlyingWing.py</StartupFile>
+    <StartupFile>FlyingWingMain.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>FlyingWing</Name>
     <RootNamespace>FlyingWing</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,15 +22,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controller\FlyingWingController.py" />
+    <Compile Include="Controller\Miscelanea\SuperficieControl.py" />
     <Compile Include="Controller\MotorController.py" />
     <Compile Include="Data\Componentes\Motores.py" />
-    <Compile Include="FlyingWing.py" />
+    <Compile Include="FlyingWingMain.py" />
+    <Compile Include="Model\FlyingWing.py" />
     <Compile Include="Model\MotorModel.py" />
     <Compile Include="View\Pizarra\GeometriaAla.py" />
     <Compile Include="View\Pizarra\Pizarra.py" />
     <Compile Include="View\VentanaPrincipal.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controller\Miscelanea\" />
     <Folder Include="Data\Componentes\" />
     <Folder Include="Model\" />
     <Folder Include="Controller\" />
