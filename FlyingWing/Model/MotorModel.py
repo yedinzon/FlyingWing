@@ -4,6 +4,7 @@ class MotorModel(object):
         self.nombre = motor[1]
         self.escobilla = motor[2]
         self.medidas = motor[3]
+        self.masa = motor[4]
 
 
 

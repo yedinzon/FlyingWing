@@ -1,52 +1,67 @@
 import tkinter as tk
-from View.Pizarra.Pizarra import Pizarra
+from tkinter import ttk
+from Model.FlyingWing import FlyingWing
 from Controller.MotorController import MotorController
+from Controller.FlyingWingController import FlyingWingController
 from Controller.Miscelanea.SuperficieControl import SuperficieControl
+from View.Pizarra.Pizarra import Pizarra
 
-class VentanaPrincipal(object):
+global flyingWing
+flyingWing = FlyingWing()
+ 
+#Configuraci�n inicial de la ventana principal
+ventana = tk.Tk()
+ventana.title('Geometria Ala Volante')    
     
-    ventana = tk.Tk()
-    ventana.title('Class')    
-    canvas = tk.Canvas(ventana, width=400, height=400)
-    canvas.grid(row=0, columnspan=6, pady=20)   
+#Creaci�n de ventana interior para dibjar el ala
+canvas = tk.Canvas(ventana, width=1000, height=400)
+canvas.grid(row=0, columnspan=6, pady=20)
+
+#Creaci�n de frame para colocar las listas y botones
+frame = tk.Frame(ventana, width=1000, height=200)
     
-    frame=tk.Frame(ventana,width=1000,height=1000)
-    canvas.pack()
-    frame.pack()
+#Se empaqueta todo en la ventana principal
+canvas.pack(fill="both", expand=1)
+frame.pack()  
 
-    S = tk.Entry(frame)
-    
-    S.grid(row=0,column=2,padx=15,pady=15)
-    Slabel = tk.Label(frame,text='Superficie Alar')
-    Slabel.grid(row=0,column=0,padx=15,pady=15)
-    mvenergico = tk.Button(frame,text='Energico',width=10,height=2,command=SuperficieControl.S_Control(800,0))
-    mvenergico.grid(row=1,column=1,padx=15,pady=15)
-    mvnormal = tk.Button(frame,text='Normal',width=10,height=2,command=lambda:S_Control(float(S.get()),1))
-    mvnormal.grid(row=1,column=2,padx=15,pady=15)
-    mvsuave = tk.Button(frame,text='Suave',width=10,height=2,command=lambda:S_Control(float(S.get()),2))
-    mvsuave.grid(row=1,column=3,padx=15,pady=15)
-    mvlabel = tk.Label(frame,text='Modo de Vuelo')
-    mvlabel.grid(row=1,column=0,padx=15,pady=15)
+####################### Configuracion de Labels, Combobox y Botones ###############################
 
-    r = tk.DoubleVar()
+tk.Label(frame,text='Motores').place(x=30, y=30)
+tk.Label(frame,text='Modo de Vuelo').place(x=30, y=60)
 
-    resultadolabel = tk.Label(frame,text='La Superficie de Control es:')
-    resultadolabel.grid(row=2,column=1,padx=15,pady=15)
-    resultado = tk.Entry(frame,textvariable=r,state='disable')
-    resultado.config(justify='center')
-    resultado.grid(row=2,column=2,padx=15,pady=15)
+listaMotores = ttk.Combobox(frame, width=10)
+listaMotores.place(x=120, y=30)
+listaModosVuelo = ttk.Combobox(frame, width=10)
+listaModosVuelo.place(x=120, y=60)
 
-    menuBar = tk.Menu(ventana)
-    ventana.config(menu=menuBar)
+labelMotores = []
+for motor in MotorController.GetAll():
+    labelMotores.append(motor.id)
+listaMotores['values'] = labelMotores
 
-    motorMenu = tk.Menu(menuBar, tearoff=0)    
-     
-    for motor in MotorController.GetAll():
-        motorMenu.add_command(label = motor.nombre)
-    menuBar.add_cascade(label = "Motor", menu = motorMenu)
+labelModoVuelo = []
+for modoVuelo in FlyingWingController.GetModosVuelo():
+    labelModoVuelo.append(modoVuelo)
+listaModosVuelo['values'] = labelModoVuelo
 
+def AddMotor():     
+    flyingWing.motor = MotorController.GetId(int(listaMotores.get()))
+    tk.Label(frame,text='OK', fg="green").place(x=10, y=30)
 
-    Pizarra(canvas)
+def ModosVuelo():     
+    flyingWing.modoVuelo = FlyingWingController.GetModoVueloName(listaModosVuelo.get())
+    tk.Label(frame,text='OK', fg="green").place(x=10, y=60)
+
+def CalcularAla():
+    flyingWingResult = FlyingWingController.Calcular(flyingWing)
+    canvas.delete('all')
+    Pizarra(canvas, flyingWing)
+
+tk.Button(frame, text="Seleccionar", command=AddMotor).place(x=220, y=30)
+tk.Button(frame, text="Seleccionar", command=ModosVuelo).place(x=220, y=60)
+tk.Button(frame, text="Calcular", command=CalcularAla).place(x=800, y=30)
+
+ventana.mainloop()
     
     
 
