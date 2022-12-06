@@ -4,3 +4,4 @@
 	areaSuperficieControl = 0
 	masaTotal = 0
 	motor = None
+	bateria = None
