@@ -12,6 +12,11 @@ class MotorController(object):
         for elemento in Motores.motores:
             if elemento[0] == id:
                 return MotorModel(elemento)
+
+    def GetReferencia(referencia):        
+        for elemento in Motores.motores:
+            if elemento[1] == referencia:
+                return MotorModel(elemento)
             
 
 

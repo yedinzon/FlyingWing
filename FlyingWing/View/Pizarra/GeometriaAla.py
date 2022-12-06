@@ -13,15 +13,15 @@ class GeometriaAla(object):
         # Define el área de una ala individual a ser la mitad de areatotal, pues esta se refiere al area total de las dos alas
         area_ala = areatotal / 2
         # ancho del fuselaje
-        ancho_fuselaje = 80
+        ancho_fuselaje = flyingWing.bateria.medidas[0]
         # Aquí se declara c1 y c2 refiriéndose a la cuerda1 y cuerda2 del ala respectivamente
         c1 = 200
         c2 = c1 / 2
         # la cuerda2 utiliza una realación de tamaño de 0.5 respecto a la cuerda1
         # angulo_flecha se refiere a el angúlo con el que se proyecta el ala desde la parte superior del fuselaje
         angulo_flecha = 20
-
-       
+        #Ajuste de escala de pixeles a cm
+        ancho_fuselaje *= 10
 
         for i in range(2):
             ala.forward(ancho_fuselaje)
@@ -31,7 +31,7 @@ class GeometriaAla(object):
 
         # Largo del ala
         largo_ala = (4 * area_ala / 3) / c1
-
+        
         # Posicionan el cursor en la esquina superior del fuselaje para dibujar ala izquierda
         ala.penup()
         ala.goto(0, c1)

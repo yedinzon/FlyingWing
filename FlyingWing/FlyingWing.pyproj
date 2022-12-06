@@ -24,10 +24,13 @@
   <ItemGroup>
     <Compile Include="Controller\FlyingWingController.py" />
     <Compile Include="Controller\Miscelanea\SuperficieControl.py" />
+    <Compile Include="Controller\BateriaController.py" />
     <Compile Include="Controller\MotorController.py" />
+    <Compile Include="Data\Componentes\Baterias.py" />
     <Compile Include="Data\Componentes\Motores.py" />
     <Compile Include="FlyingWingMain.py" />
     <Compile Include="Model\FlyingWing.py" />
+    <Compile Include="Model\BateriaModel.py" />
     <Compile Include="Model\MotorModel.py" />
     <Compile Include="View\Pizarra\GeometriaAla.py" />
     <Compile Include="View\Pizarra\Pizarra.py" />
