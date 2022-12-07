@@ -5,3 +5,5 @@
 	masaTotal = 0
 	motor = None
 	bateria = None
+	velocidadCrucero = 0
+	anguloAtaque = 0

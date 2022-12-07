@@ -19,7 +19,7 @@ class GeometriaAla(object):
         c2 = c1 / 2
         # la cuerda2 utiliza una realación de tamaño de 0.5 respecto a la cuerda1
         # angulo_flecha se refiere a el angúlo con el que se proyecta el ala desde la parte superior del fuselaje
-        angulo_flecha = 20
+        angulo_flecha = flyingWing.anguloAtaque
         #Ajuste de escala de pixeles a cm
         ancho_fuselaje *= 10
 

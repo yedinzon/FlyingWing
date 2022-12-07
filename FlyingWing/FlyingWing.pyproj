@@ -23,6 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controller\FlyingWingController.py" />
+    <Compile Include="Controller\Miscelanea\AnguloBordeAtaque.py" />
     <Compile Include="Controller\Miscelanea\SuperficieControl.py" />
     <Compile Include="Controller\BateriaController.py" />
     <Compile Include="Controller\MotorController.py" />
