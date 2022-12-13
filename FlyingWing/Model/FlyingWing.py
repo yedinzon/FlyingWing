@@ -7,3 +7,4 @@
 	bateria = None
 	velocidadCrucero = 0
 	anguloAtaque = 0
+	anchoFuselaje = 0
